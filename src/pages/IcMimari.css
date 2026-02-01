@@ -1,0 +1,1092 @@
+/* Fontları import ediyoruz */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* Değişkenler */
+:root {
+    --color-bg-dark: #ffffff;
+    --color-bg-anthracite: #ffffff;
+    --color-bg-charcoal: #ffffff;
+    --color-text-primary: #1f2937;
+    --color-text-secondary: #4b5563;
+    --color-accent: #D4AF37;
+    --color-card-text: #374151;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-family: var(--font-sans);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-dark);
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoomIn 20s infinite alternate;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.hero-tagline {
+    display: block;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 0.5s;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.1;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 0.7s;
+    color: #f8f5f0;
+}
+
+.italic-accent {
+    font-style: italic;
+    font-weight: 400;
+    color: #f8f5f0;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin-bottom: 40px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 0.9s;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 35px;
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #f5f5f0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: var(--transition-smooth);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 1.1s;
+    cursor: pointer;
+}
+
+.cta-button svg {
+    color: #f5f5f0;
+}
+
+.cta-button:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.7;
+}
+
+.scroll-indicator span {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.scroll-indicator .line {
+    width: 1px;
+    height: 60px;
+    background-color: rgba(255,255,255,0.5);
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+    .scroll-indicator { display: none; }
+}
+
+/* --- BÖLÜM 2: FELSEFEMİZ CSS KODLARI --- */
+
+.philosophy-section {
+    padding: 120px 0;
+    /* Koyu antrasit tonlarında yumuşak geçiş - daha ferah */
+    background: linear-gradient(to bottom, var(--color-bg-anthracite) 0%, var(--color-bg-charcoal) 100%);
+    position: relative;
+    z-index: 2;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-header {
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: var(--color-accent); /* Altın dokunuş */
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* Izgara Yapısı */
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+/* Kart Tasarımı - Temel */
+.philosophy-card {
+    padding: 40px 30px;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- Mimar Gözü: Sol üstten çapraz krem, geri kalan gri --- */
+.philosophy-card.card-architect {
+    background: 
+        linear-gradient(135deg, 
+            rgba(245, 235, 210, 0.22) 0%,
+            rgba(240, 228, 200, 0.18) 20%,
+            rgba(235, 220, 190, 0.12) 35%,
+            rgba(60, 60, 60, 0.15) 50%,
+            rgba(45, 45, 45, 0.2) 100%);
+    border: 1px solid rgba(245, 235, 210, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 248, 230, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.philosophy-card.card-architect::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at 0% 0%, 
+        rgba(250, 240, 215, 0.15) 0%, 
+        transparent 70%);
+    pointer-events: none;
+}
+
+.philosophy-card.card-architect:hover {
+    background: 
+        linear-gradient(135deg, 
+            rgba(250, 240, 215, 0.28) 0%,
+            rgba(245, 232, 205, 0.22) 20%,
+            rgba(240, 225, 195, 0.15) 35%,
+            rgba(60, 60, 60, 0.18) 50%,
+            rgba(45, 45, 45, 0.22) 100%);
+    border-color: rgba(250, 240, 215, 0.35);
+    transform: translateY(-5px);
+    box-shadow: 
+        0 16px 48px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 248, 230, 0.18);
+}
+
+.philosophy-card.card-architect .card-icon {
+    color: #92400e;
+}
+
+.philosophy-card.card-architect:hover .card-icon {
+    color: #78350f;
+}
+
+/* --- Mühendis Aklı: Sağ alttan çapraz mavi, geri kalan gri --- */
+.philosophy-card.card-engineer {
+    background: 
+        linear-gradient(315deg, 
+            rgba(45, 80, 130, 0.35) 0%,
+            rgba(40, 70, 115, 0.28) 20%,
+            rgba(35, 60, 100, 0.18) 35%,
+            rgba(60, 60, 60, 0.15) 50%,
+            rgba(45, 45, 45, 0.2) 100%);
+    border: 1px solid rgba(70, 120, 180, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        inset 0 -1px 0 rgba(100, 150, 210, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.philosophy-card.card-engineer::before {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at 100% 100%, 
+        rgba(70, 120, 180, 0.12) 0%, 
+        transparent 70%);
+    pointer-events: none;
+}
+
+.philosophy-card.card-engineer:hover {
+    background: 
+        linear-gradient(315deg, 
+            rgba(50, 90, 145, 0.42) 0%,
+            rgba(45, 80, 130, 0.35) 20%,
+            rgba(40, 70, 115, 0.22) 35%,
+            rgba(60, 60, 60, 0.18) 50%,
+            rgba(45, 45, 45, 0.22) 100%);
+    border-color: rgba(70, 120, 180, 0.35);
+    transform: translateY(-5px);
+    box-shadow: 
+        0 16px 48px rgba(30, 60, 100, 0.3),
+        inset 0 -1px 0 rgba(100, 150, 210, 0.15);
+}
+
+.philosophy-card.card-engineer .card-icon {
+    color: #1e40af;
+}
+
+.philosophy-card.card-engineer:hover .card-icon {
+    color: #1e3a8a;
+}
+
+/* --- Tek Muhatap: Sol üst krem + Sağ alt mavi birleşimi --- */
+.philosophy-card.card-unified {
+    background: 
+        linear-gradient(135deg, 
+            rgba(250, 240, 215, 0.24) 0%,
+            rgba(245, 232, 205, 0.2) 20%,
+            rgba(240, 228, 198, 0.16) 40%,
+            rgba(80, 110, 155, 0.16) 60%,
+            rgba(50, 85, 135, 0.26) 80%,
+            rgba(45, 80, 130, 0.35) 100%);
+    border: 1px solid;
+    border-image: linear-gradient(135deg, 
+        rgba(250, 240, 215, 0.4) 0%,
+        rgba(220, 210, 190, 0.25) 45%,
+        rgba(80, 130, 180, 0.3) 55%,
+        rgba(70, 120, 180, 0.45) 100%) 1;
+    box-shadow: 
+        0 12px 45px rgba(20, 50, 90, 0.22),
+        0 6px 25px rgba(245, 235, 210, 0.08),
+        inset 0 1px 0 rgba(255, 248, 230, 0.12),
+        inset 0 -1px 0 rgba(100, 150, 210, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.philosophy-card.card-unified::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(ellipse at 0% 0%, rgba(250, 240, 215, 0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 100% 100%, rgba(60, 100, 160, 0.2) 0%, transparent 60%);
+    pointer-events: none;
+    opacity: 1;
+    transition: var(--transition-smooth);
+}
+
+.philosophy-card.card-unified::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(135deg);
+    width: 150%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        rgba(250, 240, 215, 0.15) 0%,
+        rgba(200, 200, 200, 0.08) 50%,
+        rgba(70, 120, 180, 0.15) 100%);
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.philosophy-card.card-unified:hover {
+    background: 
+        linear-gradient(135deg, 
+            rgba(255, 245, 220, 0.3) 0%,
+            rgba(250, 240, 215, 0.25) 20%,
+            rgba(245, 235, 205, 0.2) 40%,
+            rgba(80, 110, 155, 0.2) 60%,
+            rgba(50, 85, 135, 0.32) 80%,
+            rgba(45, 80, 130, 0.42) 100%);
+    transform: translateY(-8px);
+    box-shadow: 
+        0 22px 65px rgba(20, 50, 90, 0.32),
+        0 10px 35px rgba(245, 235, 210, 0.12),
+        inset 0 1px 0 rgba(255, 248, 230, 0.18),
+        inset 0 -1px 0 rgba(100, 150, 210, 0.14);
+}
+
+.philosophy-card.card-unified:hover::before {
+    opacity: 1.2;
+}
+
+.philosophy-card.card-unified .card-icon {
+    color: #b8860b;
+}
+
+.philosophy-card.card-unified:hover .card-icon {
+    color: #92400e;
+}
+
+/* Hover Efekti: Varsayılan kartlar için */
+.philosophy-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.card-icon {
+    color: #1f2937;
+    margin-bottom: 25px;
+    opacity: 1;
+    transition: var(--transition-smooth);
+}
+
+.philosophy-card:hover .card-icon {
+    opacity: 1;
+}
+
+.philosophy-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--color-text-primary);
+}
+
+.card-motto {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #6b7280;
+    margin-bottom: 20px;
+    font-weight: 500;
+    opacity: 1;
+}
+
+/* Kart bazlı motto renkleri - koyu arka plan uyumu */
+.philosophy-card.card-architect .card-motto {
+    color: #92400e;
+}
+
+.philosophy-card.card-engineer .card-motto {
+    color: #1e40af;
+}
+
+.philosophy-card.card-unified .card-motto {
+    color: #b8860b;
+}
+
+.card-desc {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.7;
+}
+
+/* Mobil Düzenleme */
+@media (max-width: 768px) {
+    .philosophy-section {
+        padding: 80px 0;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* --- BÖLÜM 3: HİZMETLERİMİZ CSS KODLARI --- */
+
+.services-section {
+    padding: 120px 0;
+    /* Ferah antrasit arka plan */
+    background: linear-gradient(to bottom, var(--color-bg-charcoal) 0%, #2a2a2a 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* YENİ: Görsel Ağırlıklı Kart Yapısı */
+.service-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 450px;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Arka Plan Görseli */
+.service-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-bg-image {
+    transform: scale(1.08);
+}
+
+/* Gradient Overlay - Okunabilirlik için */
+.service-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.7) 40%,
+        rgba(0, 0, 0, 0.3) 70%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    z-index: 1;
+}
+
+/* Numara Badge */
+.service-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    z-index: 2;
+}
+
+/* İçerik - Görselin Altında */
+.service-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    z-index: 2;
+}
+
+.service-content h3 {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: var(--color-text-primary);
+}
+
+.service-slogan {
+    font-style: italic;
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    opacity: 0.95;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-list li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Liste maddelerinin başına altın kare */
+.service-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-accent);
+    border-radius: 2px;
+}
+
+/* Teknik Etiket */
+.tech-tag {
+    display: inline-block;
+    margin-top: 15px;
+    font-family: monospace;
+    font-size: 0.75rem;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--color-accent);
+    padding: 6px 12px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 4px;
+    backdrop-filter: blur(5px);
+}
+
+/* Mobil */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card {
+        min-height: 400px;
+    }
+}
+
+/* --- BÖLÜM 4: SÜREÇ CSS KODLARI --- */
+
+.process-section {
+    padding: 100px 0;
+    background-color: var(--color-bg-anthracite); /* Antrasit tonu */
+    position: relative;
+    /* Teknik bir his için silik ızgara deseni */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 60px;
+}
+
+.process-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+    background: rgba(0,0,0,0.4); /* Okunurluk için hafif koyu zemin */
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: var(--transition-smooth);
+}
+
+.process-step:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.6);
+}
+
+.step-number {
+    display: inline-block;
+    font-family: monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    background: rgba(212, 175, 55, 0.1); /* Altın renginin saydam hali */
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.step-content h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--color-text-primary);
+    margin-bottom: 15px;
+}
+
+.step-content p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Adımlar Arasındaki Ok/Çizgi */
+.step-connector {
+    width: 40px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    align-self: center;
+    margin-top: -80px; /* Kabaca içeriğe göre hizalama */
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 900px) {
+    .process-steps {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .step-connector {
+        width: 1px;
+        height: 30px; /* Mobilde dikey çizgi */
+        margin: 0 auto; /* Ortala */
+        align-self: center;
+    }
+    
+    .process-step {
+        width: 100%;
+    }
+}
+
+/* --- BÖLÜM 5: PORTFOLYO (SLIDER) CSS KODLARI --- */
+
+.portfolio-section {
+    padding: 100px 0;
+    background-color: var(--color-bg-dark);
+    border-top: 1px solid #e5e7eb;
+}
+
+.portfolio-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Sol taraf (resim) daha geniş */
+    gap: 60px;
+    align-items: center;
+}
+
+/* --- Slider Konteyner --- */
+.comparison-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Geniş ekran formatı */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Etiketler (Öncesi / Sonrası) */
+.label-badge {
+    position: absolute;
+    top: 20px;
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.label-before {
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.label-after {
+    left: 20px;
+    background: var(--color-accent);
+    color: #000;
+}
+
+/* --- Slider Mekanizması --- */
+.slider-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Input görünmez ama tıklanabilir */
+    cursor: col-resize; /* Fare imleci sağ-sol işareti olur */
+    z-index: 20;
+    margin: 0;
+}
+
+.slider-handle-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #fff;
+    z-index: 15;
+    pointer-events: none; /* Tıklamayı input'a bıraksın */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.slider-handle-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: var(--color-accent); /* Altın rengi buton */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* --- Sağ Taraf: Proje Detayları --- */
+.portfolio-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #1f2937;
+}
+
+.project-card {
+    background: #f9fafb;
+    padding: 30px;
+    border-left: 2px solid var(--color-accent);
+    border-radius: 4px;
+}
+
+.project-info-row {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.info-label {
+    color: #6b7280;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.info-value {
+    color: #1f2937;
+    font-weight: 500;
+    text-align: right;
+}
+
+.project-description {
+    margin-top: 20px;
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.highlight-result {
+    margin-top: 15px;
+    color: #1f2937;
+    border: 1px dashed #d1d5db;
+    padding: 10px;
+    border-radius: 4px;
+    background: #f3f4f6;
+}
+
+.portfolio-link {
+    display: inline-block;
+    margin-top: 25px;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition-smooth);
+}
+
+.portfolio-link:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 900px) {
+    .portfolio-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .comparison-container {
+        aspect-ratio: 4 / 3; /* Mobilde daha kare format */
+    }
+}
+
+/* --- BÖLÜM 6: FAQ & TESTIMONIAL CSS --- */
+
+.faq-section {
+    padding: 100px 0;
+    /* Antrasit geçiş - ferah */
+    background: linear-gradient(to bottom, var(--color-bg-charcoal) 0%, var(--color-bg-anthracite) 100%);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.faq-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+/* Müşteri Yorumu (Testimonial) */
+.testimonial-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    padding: 50px 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+}
+
+.quote-icon {
+    font-family: var(--font-serif);
+    font-size: 8rem;
+    color: var(--color-accent);
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    opacity: 0.2;
+    line-height: 1;
+}
+
+.testimonial-text {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    background: var(--color-accent);
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    color: #fff;
+    font-weight: 600;
+}
+
+.author-title {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Akordiyon (FAQ) */
+.faq-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.accordion-item {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    transition: var(--transition-smooth);
+}
+
+.accordion-header .question {
+    font-size: 1.05rem;
+    color: #ccc;
+    font-weight: 500;
+}
+
+.accordion-header .icon {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    transition: transform 0.3s ease;
+}
+
+.accordion-item:hover .accordion-header .question {
+    color: #fff;
+}
+
+/* Aktif Durum (Açıkken) */
+.accordion-item.active .accordion-header .question {
+    color: var(--color-accent);
+}
+
+.accordion-item.active .icon {
+    transform: rotate(45deg); /* + işaretini x yapar */
+}
+
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.accordion-item.active .accordion-body {
+    max-height: 150px; /* İçerik için yeterli alan */
+    padding-bottom: 20px;
+}
+
+/* Mobil */
+@media (max-width: 900px) {
+    .faq-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+/* --- 1. Z HARFİ DÜZENLEMESİ --- */
+.author-avatar {
+  /* Pastel bir bej/toprak tonu - İç mimariye uygun */
+  background-color: #E8D3B9 !important; 
+  color: #1a1a1a !important; /* Harf rengi koyu olsun */
+  
+  /* Şekil Ayarları */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Tam yuvarlak yapar */
+  
+  /* Harfi ortalamak için */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Yazı Tipi */
+  font-size: 22px;
+  font-weight: bold;
+  margin-right: 15px; /* İsimle arasına boşluk */
+}
+
+/* 2. TIKLANINCA (Aktif/Açık Durum): Amber Sarısı Olsun */
+/* Hem data-state="open" hem de aria-expanded="true" kullanan sistemleri kapsar */
+.accordion [data-state="open"],
+.accordion [data-state="open"] > *,
+.accordion button[aria-expanded="true"],
+.accordion .active {
+    color: #FFBF00 !important; /* Amber Sarısı */
+    opacity: 1 !important;
+}
+
+/* 3. Mouse ile üzerine gelince (Hover) hafif sarımsı olsun (İstersen) */
+.accordion button:hover {
+    color: #ffe082 !important; /* Daha açık bir sarı tonu */
+}
+
